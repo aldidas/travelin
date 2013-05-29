@@ -32,3 +32,4 @@ function CartCtrl($rootScope, $scope) {
 function AboutCtrl($rootScope, $scope) {
 	$rootScope.activeNavitem = 'aboutMenu';
 }
+

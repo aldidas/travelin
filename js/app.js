@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('tiketApp',['ngResource'])
+angular.module('tiketApp',['ngResource', 'ui.bootstrap'])
 	.config(['$routeProvider', function($routeProvider){
 		$routeProvider
 			.when('/flight', {

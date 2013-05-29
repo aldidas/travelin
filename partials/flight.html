@@ -1,10 +1,13 @@
 <div class="navbar navbar-fixed-top">
 	<div class="navbar-inner">
-		<h2 class="text-center">Penerbangan</h2>
+		<h3 class="page-title text-center">Penerbangan</h3>
 	</div>
 </div>
-<div id="preloader" ng-hide="loaded">Loading ...</div>
-<form class="form" id="searchFlight" ng-show="loaded">
+
+<div id="preloader" class="page" ng-hide="loaded">Loading ...</div>
+
+<form class="form page" id="searchFlight" ng-show="loaded">
+
 	<fieldset>
 		<legend>Dari</legend>
 		<select class="span12" id="fromAirport" ng-repeat="fairport in listAirport.all_airport" ng-model="fromAirport">
@@ -18,5 +21,29 @@
 			<option name="{{tairport.airport_code}}">{{tairport.airport_name}}</option>
 		</select>
 	</fieldset>
+
+	<fieldset>
+		<legend>Jenis Perjalanan</legend>
+		<div ng-controller="RoundtripCtrl">
+			<div id="roundtripbtng" class="btn-group">
+	        <button type="button" class="btn btn-large" ng-model="roundTrip" btn-radio="'Sekali Jalan'">Sekali Jalan</button>
+	        <button type="button" class="btn btn-large" ng-model="roundTrip" btn-radio="'Pulang Pergi'">Pulang Pergi</button>
+	    </div><br><br>
+	    <input type="date" class="span12" ng-model="berangkatDate">
+			<input type="date" class="span12" ng-model="pulangDate" ng-show="roundTrip == 'Pulang Pergi'">
+		</div>
+	</fieldset>
+
+	<fieldset>
+		<legend>Jumlah Penumpang</legend>
+		<label for="dewasaPas">Dewasa</label>
+		<input id="dewasaPas" class="span12" type="number" max="4" ng-model="dewasaPas">
+		<label for="dewasaPas">Anak</label>
+		<input id="anakPas" class="span12" type="number" max="4" ng-model="anakPas">
+		<label for="dewasaPas">Bayi</label>
+		<input id="bayiPas" class="span12" type="number" max="4" ng-model="bayiPas">
+	</fieldset>
+	<br>
+	<button class="btn btn-primary btn-block btn-large"><i class="icon-search"></i> Cari</button>
 
 </form>

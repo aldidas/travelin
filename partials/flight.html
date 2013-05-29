@@ -29,19 +29,31 @@
 	        <button type="button" class="btn btn-large" ng-model="roundTrip" btn-radio="'Sekali Jalan'">Sekali Jalan</button>
 	        <button type="button" class="btn btn-large" ng-model="roundTrip" btn-radio="'Pulang Pergi'">Pulang Pergi</button>
 	    </div><br><br>
-	    <input type="date" class="span12" ng-model="berangkatDate">
-			<input type="date" class="span12" ng-model="pulangDate" ng-show="roundTrip == 'Pulang Pergi'">
+	    <div class="control">
+				<label for="berangkatDate">Tanggal Berangkat</label>
+		    <input id="berangkatDate" name="berangkatDate" type="date" class="span12" ng-model="berangkatDate">
+		  </div>
+		  <div class="control" ng-show="roundTrip == 'Pulang Pergi'">
+		    <label for="pulangDate">Tanggal Pulang</label>
+				<input id="pulangDate" name="pulangDate" type="date" class="span12" ng-model="pulangDate">
+			</div>
 		</div>
 	</fieldset>
 
 	<fieldset>
 		<legend>Jumlah Penumpang</legend>
-		<label for="dewasaPas">Dewasa</label>
-		<input id="dewasaPas" class="span12" type="number" max="4" ng-model="dewasaPas">
-		<label for="dewasaPas">Anak</label>
-		<input id="anakPas" class="span12" type="number" max="4" ng-model="anakPas">
-		<label for="dewasaPas">Bayi</label>
-		<input id="bayiPas" class="span12" type="number" max="4" ng-model="bayiPas">
+		<div class="control">
+			<label for="dewasaPas">Dewasa</label>
+			<input id="dewasaPas" name="dewasaPas"  class="span12" type="number" min="0" max="4" ng-model="dewasaPas">
+		</div>
+		<div class="control">
+			<label for="dewasaPas">Anak</label>
+			<input id="anakPas" name="anakPas" class="span12" type="number" min="0" max="4" ng-model="anakPas">
+		</div>
+		<div class="control">
+			<label for="dewasaPas">Bayi</label>
+			<input id="bayiPas" name="bayiPas" class="span12" type="number" min="0" max="4" ng-model="bayiPas">
+		</div>
 	</fieldset>
 	<br>
 	<button class="btn btn-primary btn-block btn-large"><i class="icon-search"></i> Cari</button>

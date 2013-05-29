@@ -1,0 +1,22 @@
+<div class="navbar navbar-fixed-top">
+	<div class="navbar-inner">
+		<h2 class="text-center">Penerbangan</h2>
+	</div>
+</div>
+<div id="preloader" ng-hide="loaded">Loading ...</div>
+<form class="form" id="searchFlight" ng-show="loaded">
+	<fieldset>
+		<legend>Dari</legend>
+		<select class="span12" id="fromAirport" ng-repeat="fairport in listAirport.all_airport" ng-model="fromAirport">
+			<option name="{{fairport.airport_code}}">{{fairport.airport_name}}</option>
+		</select>
+	</fieldset>
+
+	<fieldset>
+		<legend>Tujuan</legend>
+		<select class="span12" id="toAirport"ng-repeat="tairport in listAirport.all_airport" ng-model="toAirport">
+			<option name="{{tairport.airport_code}}">{{tairport.airport_name}}</option>
+		</select>
+	</fieldset>
+
+</form>

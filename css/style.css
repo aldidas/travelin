@@ -1,0 +1,5 @@
+#main-footer {position:fixed;bottom:0;left:0;margin-bottom:0 !important;}
+#main-footer .navbar-inner {padding:0;-webkit-border-radius:0 0 4px 4px;border-radius:0 0 4px 4px;}
+#main-footer ul.nav {margin:0 !important;}
+#main-footer li {display:table-cell;width:1%;float:none;}
+#main-footer a {padding:15px !important;text-align:center;}

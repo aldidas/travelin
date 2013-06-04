@@ -1,6 +1,10 @@
 .navbar-fixed-top {position:fixed;top:0;left:0;}
 
-#main-footer {position:fixed;bottom:0;left:0;margin-bottom:0 !important;}
+#main-footer {position:fixed;bottom:-72px;left:0;margin-bottom:0 !important;
+	-webkit-transition: all .2s ease-out;
+	transition: all .2s ease-out;
+}
+#main-footer.visible {bottom:0;}
 #main-footer .navbar-inner {padding:0;-webkit-border-radius:0;border-radius:0;}
 #main-footer ul.nav {margin:0 !important;}
 #main-footer li {display:table-cell;width:1%;float:none;}
@@ -10,3 +14,58 @@
 .page-title {margin-top:0;margin-bottom:0;}
 
 #roundtripbtng .btn {width:85%;padding-left:0;padding-right:0;}
+
+#preloader {text-align:center;}
+
+#main-nav li {display:inline-block;width:40%;margin:0 10px 10px 10px;}
+#main-nav a {display:block;background:#000;color:#fff;height:130px;text-align:center;}
+
+.navbar-inner {position:relative;}
+.top-button {display:block;width:40px;height:30px;background:#999;position:absolute;top:10px;text-align:center;border-radius:3px;line-height:30px;}
+.top-button.left {left:30px;}
+.top-button.right {right:30px;}
+
+.special-select {position:fixed; z-index:1000; top:70px; right:-100%; width:95%; height:auto;background:#fff;
+	-webkit-transition: all .2s ease-out;
+	transition: all .2s ease-out;
+}
+.special-select.selecttvisible, .special-select.selectfvisible {right:0;box-shadow:0 0 100px #000;}
+.select-wrapper {margin:15px;}
+.select-input {width:92%;}
+.list-wrapper {display:block;height:400px;overflow:auto;}
+.list-wrapper ul {list-style:none;margin:0;padding:0;}
+.list-wrapper li {margin:0;padding:5px;line-height:24px;border-bottom:1px solid #ddd;}
+
+.preloader {font-size:48px;display:block;width:48px;height:48px;margin:40px auto;
+	-webkit-animation: preload 2s linear infinite;
+	animation: preload 2s linear infinite;
+}
+@-webkit-keyframes preload {
+   from { -webkit-transform:rotate(0deg);}
+     to { -webkit-transform:rotate(359deg); } 
+}
+@keyframes preload {
+   from { transform:rotate(0deg);}
+     to { transform:rotate(359deg); } 
+}
+
+.first-hide {opacity:0;}
+
+.fade-hide, .fade-show {
+  -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+}
+
+.fade-hide {
+  opacity:1 !important;
+}
+.fade-hide.fade-hide-active {
+  opacity:0;
+}
+
+.fade-show {
+  opacity:0;
+}
+.fade-show.fade-show-active {
+  opacity:1 !important;
+}

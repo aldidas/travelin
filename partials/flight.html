@@ -1,93 +1,90 @@
-<div class="navbar navbar-fixed-top">
-	<div class="navbar-inner">
-		<back-button></back-button>
-		<h3 class="page-title text-center">Flight</h3>
+<div>
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<back-button></back-button>
+			<h3 class="page-title text-center">Flight</h3>
+		</div>
 	</div>
-</div>
 
-<div class="page form" id="searchFlight">
+	<div class="page form" id="searchFlight">
 
-	<div id="preloader" class="page" ng-hide="loaded" ng-animation="'fade'"><preloader></preloader></div>
+		<div id="preloader" class="page" ng-hide="loaded" ng-animation="{show:'fade', hide:'fade'}"><preloader></preloader></div>
 
-	<form id="searchFlight" ng-submit ng-animation="'fade'" ng-show="loaded">
+		<form id="searchFlight" ng-submit ng-animation="{show:'fade', hide:'fade'}" ng-show="loaded">
 
-		<fieldset ng-controller="SpecialslfCtrl">
-			<legend>From</legend>
-			<div>
-				<input type="text" class="span12" name="flight.flocation" ng-model="flight.flocation" ng-click="revealfSelect()" placeholder="From">
-				<div ng-class="{selectfvisible: select == 'visible'}" class="special-select">
-					<div class="select-wrapper">
-						<div class="input-append span12">
-						  <input class="select-input" ng-model="fQuery" type="text">
-						  <span class="add-on"><i class="icon-search"></i></span>
-						</div>
-						<div class="list-wrapper">
-							<ul>
-								<li ng-repeat="fairport in listAirport.all_airport.airport | filter:fQuery" ng-click='selectfItem("{{fairport.airport_code}}")'>{{fairport.location_name}} - {{fairport.airport_code}}</li>
-							</ul>
+			<fieldset ng-controller="SpecialslfCtrl">
+				<legend>From</legend>
+				<div>
+					<input type="text" class="span12" name="flight.flocation" ng-model="flight.flocation" ng-click="revealfSelect()" placeholder="From">
+					<div ng-class="{selectfvisible: select == 'visible'}" class="special-select">
+						<div class="select-wrapper">
+							<input class="span12" ng-model="fQuery" type="text" placeholder="type to search ...">
+							<div class="list-wrapper">
+								<ul>
+									<li ng-repeat="fairport in listAirport.all_airport.airport | filter:fQuery" ng-click='selectfItem("{{fairport.airport_code}}")'>{{fairport.location_name}} - {{fairport.airport_code}}</li>
+								</ul>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+				<div ng-class="{overlayes: foverlay == 'visible'}" class="overlay"></div>
+			</fieldset> 
 
-		</fieldset> 
-
-		<fieldset ng-controller="SpecialsltCtrl">
-			<legend>Destination</legend>
-			<div>
-				<input type="text" class="span12" name="flight.tlocation" ng-model="flight.tlocation" ng-click="revealtSelect()" placeholder="Destination">
-				<div ng-class="{selecttvisible: select == 'visible'}" class="special-select">
-					<div class="select-wrapper">
-						<div class="input-append span12">
-						  <input class="select-input" ng-model="tQuery" type="text">
-						  <span class="add-on"><i class="icon-search"></i></span>
-						</div>
-						<div class="list-wrapper">
-							<ul>
-								<li ng-repeat="tairport in listAirport.all_airport.airport | filter:tQuery" ng-click='selecttItem("{{tairport.airport_code}}")'>{{tairport.location_name}} - {{tairport.airport_code}}</li>
-							</ul>
+			<fieldset ng-controller="SpecialsltCtrl">
+				<legend>Destination</legend>
+				<div>
+					<input type="text" class="span12" name="flight.tlocation" ng-model="flight.tlocation" ng-click="revealtSelect()" placeholder="Destination">
+					<div ng-class="{selecttvisible: select == 'visible'}" class="special-select">
+						<div class="select-wrapper">
+							<input class="span12" ng-model="tQuery" type="text" placeholder="type to search ...">
+							<div class="list-wrapper">
+								<ul>
+									<li ng-repeat="tairport in listAirport.all_airport.airport | filter:tQuery" ng-click='selecttItem("{{tairport.airport_code}}")'>{{tairport.location_name}} - {{tairport.airport_code}}</li>
+								</ul>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		</fieldset>
+				<div ng-class="{overlayes: toverlay == 'visible'}" class="overlay"></div>
+			</fieldset>
 
-		<fieldset>
-			<legend>Trip Type</legend>
-			<div ng-controller="RoundtripCtrl">
-				<div id="roundtripbtng" class="btn-group">
-		        <button type="button" class="btn btn-large" ng-model="roundTrip" btn-radio="'Sekali Jalan'">One Trip</button>
-		        <button type="button" class="btn btn-large" ng-model="roundTrip" btn-radio="'Pulang Pergi'">Round Trip</button>
-		    </div><br><br>
-		    <div class="control" ng-controller="DateCtrl">
-					<label for="inputDate">Departure Date</label>
-			    <input type="text" class="span12" ng-model="flight.date">
-			  </div>
-			  <div class="control" ng-show="roundTrip == 'Pulang Pergi'" ng-controller="DateCtrl">
-			    <label for="ret_date">Back Date</label>
-					<input type="text" class="span12" ng-model="flight.ret_date">
+			<fieldset>
+				<legend>Trip Type</legend>
+				<div ng-controller="RoundtripCtrl">
+					<div id="roundtripbtng" class="btn-group">
+			        <button type="button" class="btn btn-large" ng-model="roundTrip" btn-radio="'Sekali Jalan'">One Trip</button>
+			        <button type="button" class="btn btn-large" ng-model="roundTrip" btn-radio="'Pulang Pergi'">Round Trip</button>
+			    </div><br><br>
+			    <div class="control" ng-controller="DateCtrl">
+						<label for="inputDate">Departure Date</label>
+				    <input type="text" class="span12" ng-model="flight.date">
+				  </div>
+				  <div class="control" ng-show="roundTrip == 'Pulang Pergi'" ng-controller="DateCtrl">
+				    <label for="ret_date">Back Date</label>
+						<input type="text" class="span12" ng-model="flight.ret_date">
+					</div>
 				</div>
-			</div>
-		</fieldset>
+			</fieldset>
 
-		<fieldset>
-			<legend>Passangers</legend>
-			<div class="control">
-				<label for="adult">Adult</label>
-				<input class="span12" ng-model="flight.adult" type="number" min="1" max="4">
-			</div>
-			<div class="control">
-				<label for="child">Child</label>
-				<input class="span12" ng-model="flight.child" type="number" min="0" max="4">
-			</div>
-			<div class="control">
-				<label for="infant">Infant</label>
-				<input class="span12" ng-model="flight.infant" type="number" min="0" max="4" >
-			</div>
-		</fieldset>
-		<br>
-		<button class="btn btn-primary btn-block btn-large" ng-click="listFlight(flight)"><i class="icon-search"></i> Search</button>
+			<fieldset>
+				<legend>Passangers</legend>
+				<div class="control">
+					<label for="adult">Adult</label>
+					<input class="span12" ng-model="flight.adult" type="number" min="1" max="4">
+				</div>
+				<div class="control">
+					<label for="child">Child</label>
+					<input class="span12" ng-model="flight.child" type="number" min="0" max="4">
+				</div>
+				<div class="control">
+					<label for="infant">Infant</label>
+					<input class="span12" ng-model="flight.infant" type="number" min="0" max="4" >
+				</div>
+			</fieldset>
+			<br>
+			<button class="btn btn-primary btn-block btn-large" ng-click="listFlight(flight)"><i class="icon-search"></i> Search</button>
 
-	</form>
+		</form>
 
+	</div>
 </div>

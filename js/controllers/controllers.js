@@ -2,6 +2,7 @@
 
 function MainCtrl($rootScope, $scope, $resource, $location, Gettoken) {
 	$rootScope.footMenu = '';
+	$rootScope.ishome = 'true';
 	$scope.theToken = Gettoken.get(function(tokenData){
 		$scope.loaded = true;
 		return tokenData.token;
@@ -10,6 +11,7 @@ function MainCtrl($rootScope, $scope, $resource, $location, Gettoken) {
 
 function FlightCtrl($rootScope, $scope, $resource, $location, $routeParams) {
 	$rootScope.activeNavitem = 'flightMenu';
+	$rootScope.ishome = '';
 	$rootScope.footMenu = 'visible';
 	$scope.select = '';
 	$scope.master = {
@@ -67,25 +69,30 @@ function FlightCtrl($rootScope, $scope, $resource, $location, $routeParams) {
 function SpecialslfCtrl($scope) {
 	$scope.revealfSelect = function() {
 		$scope.select = 'visible';
+		$scope.foverlay = 'visible';
 	};
 	$scope.selectfItem = function(fcode) {
 		$scope.select = '';
 		$scope.flight.flocation = fcode;
+		$scope.foverlay = '';
 	};
 }
 
 function SpecialsltCtrl($scope) {
 	$scope.revealtSelect = function() {
 		$scope.select = 'visible';
+		$scope.toverlay = 'visible';
 	};
 	$scope.selecttItem = function(tcode) {
 		$scope.select = '';
 		$scope.flight.tlocation = tcode;
+		$scope.toverlay = '';
 	};
 }
 
 function FlightResultCtrl($rootScope, $scope, $resource, $routeParams, $location, $route) {
 	$rootScope.activeNavitem = 'flightMenu';
+	$rootScope.ishome = '';
 	$rootScope.footMenu = '';
 		$scope.getFlight = $resource(apiUrl+'search/:action',
 			{
@@ -119,6 +126,7 @@ function FlightResultCtrl($rootScope, $scope, $resource, $routeParams, $location
 
 function FlightDetailCtrl($rootScope, $scope, $resource, $routeParams) {
 	$rootScope.activeNavitem = 'flightMenu';
+	$rootScope.ishome = '';
 	$rootScope.footMenu = '';
 	$scope.getDetail = $resource(apiUrl+'flight_api/:action',
 		{
@@ -146,15 +154,18 @@ function DateCtrl($scope) {
 
 function HotelCtrl($rootScope, $scope) {
 	$rootScope.activeNavitem = 'hotelMenu';
+	$rootScope.ishome = '';
 	$scope.a = 'test hotel';
 }
 
 function CartCtrl($rootScope, $scope) {
 	$rootScope.activeNavitem = 'cartMenu';
+	$rootScope.ishome = '';
 	$scope.b = 'test cart';
 }
 
 function AboutCtrl($rootScope, $scope) {
 	$rootScope.activeNavitem = 'aboutMenu';
+	$rootScope.ishome = '';
 }
 

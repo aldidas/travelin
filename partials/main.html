@@ -1,13 +1,21 @@
-<div class="page" id="pageMain">
+<div>
+	<div class="page" id="pageMain">
 
-	<div id="preloader" class="page" ng-hide="loaded" ng-animation="'fade'"><preloader></preloader></div>
+		<h1 class="text-center"><em>travelin'</em></h1>
 
-	<nav id="main-nav" ng-show="loaded" ng-animation="'fade'">
-		<ul>
-			<li><a ng-href="#/flight?token={{theToken.token}}"><i class="icon-plane icon-white"></i><br>Flight</a></li>
-			<li><a ng-href="#/hotel?token={{theToken.token}}"><i class="icon-briefcase icon-white"></i><br>Hotel</a></li>
-			<li><a ng-href="#/cart?token={{theToken.token}}"><i class="icon-shopping-cart icon-white"></i><br>Cart</a></li>
-			<li><a ng-href="#/about"><i class="icon-group icon-white"></i><br>About</a></li>
-		</ul>
-	</nav>	
+		<div class="lead text-center">
+			your companion in travelin' 
+		</div>
+
+		<div id="preloader" class="page" ng-hide="loaded" ng-animate="{enter: 'view-enter', leave: 'view-leave'}"><preloader></preloader></div>
+
+		<nav id="main-nav" ng-show="loaded" ng-animate="{enter: 'view-enter', leave: 'view-leave'}">
+			<ul>
+				<li><a ng-href="#/flight?token={{theToken.token}}"><i class="icon-plane icon-white"></i><br><span>Flight</span></a></li>
+				<li><a ng-href="#/hotel?token={{theToken.token}}"><i class="icon-briefcase icon-white"></i><br><span>Hotel</span></a></li>
+				<li><a ng-href="#/cart?token={{theToken.token}}"><i class="icon-shopping-cart icon-white"></i><br><span>Cart</span></a></li>
+				<li><a ng-href="#/about"><i class="icon-group icon-white"></i><br><span>About</span></a></li>
+			</ul>
+		</nav>	
+	</div>
 </div>

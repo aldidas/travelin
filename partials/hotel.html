@@ -1,53 +1,55 @@
-<div class="navbar navbar-fixed-top">
-	<div class="navbar-inner">
-		<h3 class="page-title text-center">Hotel</h3>
+<div>
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<h3 class="page-title text-center">Hotel</h3>
+		</div>
 	</div>
-</div>
 
-<form class="form page" id="searchHotel">
+	<form class="form page" id="searchHotel">
 
-	<fieldset>
-		<legend>Pilih Kota</legend>
-		<input type="text" ng-model="fQuery" class="span12">
-		<select class="span12" id="selectCity" ng-model="selectCity">
-			<option ></option>
-		</select>
-	</fieldset>
+		<fieldset>
+			<legend>Pilih Kota</legend>
+			<input type="text" ng-model="fQuery" class="span12">
+			<select class="span12" id="selectCity" ng-model="selectCity">
+				<option ></option>
+			</select>
+		</fieldset>
 
-	<fieldset>
-		<legend>Jadwal</legend>
-		<div ng-controller="RoundtripCtrl">
-	    <div class="control">
-				<label for="checkinDate">Tanggal Check In</label>
-		    <input id="checkinDate" name="checkinDate" type="date" class="span12" ng-model="checkinDate">
-		  </div>
-		  <div class="control">
-		    <label for="checkoutDate">Tanggal Check Out</label>
-				<input id="checkoutDate" name="checkoutDate" type="date" class="span12" ng-model="checkoutDate">
+		<fieldset>
+			<legend>Jadwal</legend>
+			<div ng-controller="RoundtripCtrl">
+		    <div class="control">
+					<label for="checkinDate">Tanggal Check In</label>
+			    <input id="checkinDate" name="checkinDate" type="date" class="span12" ng-model="checkinDate">
+			  </div>
+			  <div class="control">
+			    <label for="checkoutDate">Tanggal Check Out</label>
+					<input id="checkoutDate" name="checkoutDate" type="date" class="span12" ng-model="checkoutDate">
+				</div>
+				<div class="control">
+					<label for="jumlahMalam">Malam</label>
+					<input id="jumlahMalam" name="jumlahMalam"  class="span12" type="number" min="0" ng-model="jumlahMalam">
+				</div>
+			</div>
+		</fieldset>
+
+		<fieldset>
+			<legend>Jumlah</legend>
+			<div class="control">
+				<label for="kamarPas">Kamar</label>
+				<input id="kamarPas" name="kamarPas" class="span12" type="number" min="0" max="4" ng-model="kamarPas">
 			</div>
 			<div class="control">
-				<label for="jumlahMalam">Malam</label>
-				<input id="jumlahMalam" name="jumlahMalam"  class="span12" type="number" min="0" ng-model="jumlahMalam">
+				<label for="dewasaPas">Dewasa</label>
+				<input id="dewasaPas" name="dewasaPas"  class="span12" type="number" min="0" max="4" ng-model="dewasaPas">
 			</div>
-		</div>
-	</fieldset>
+			<div class="control">
+				<label for="anakPas">Anak</label>
+				<input id="anakPas" name="anakPas" class="span12" type="number" min="0" max="4" ng-model="anakPas">
+			</div>
+		</fieldset>
+		<br>
+		<button class="btn btn-primary btn-block btn-large"><i class="icon-search"></i> Cari</button>
 
-	<fieldset>
-		<legend>Jumlah</legend>
-		<div class="control">
-			<label for="kamarPas">Kamar</label>
-			<input id="kamarPas" name="kamarPas" class="span12" type="number" min="0" max="4" ng-model="kamarPas">
-		</div>
-		<div class="control">
-			<label for="dewasaPas">Dewasa</label>
-			<input id="dewasaPas" name="dewasaPas"  class="span12" type="number" min="0" max="4" ng-model="dewasaPas">
-		</div>
-		<div class="control">
-			<label for="anakPas">Anak</label>
-			<input id="anakPas" name="anakPas" class="span12" type="number" min="0" max="4" ng-model="anakPas">
-		</div>
-	</fieldset>
-	<br>
-	<button class="btn btn-primary btn-block btn-large"><i class="icon-search"></i> Cari</button>
-
-</form>
+	</form>
+</div>
